@@ -68,13 +68,13 @@ router.get('/home-office', async(req, res) => {
   // res.render('index');
   // const data = await getData();
 
-  // res.render("index", {
-  //   pageTitle: "Home",
-  //   ...data,
-  //   contactForm,
-  //   contactInfo,
-  // });
-  res.render(`testk.ejs`);
+  res.render("index", {
+    pageTitle: "Home",
+    ...data,
+    contactForm,
+    contactInfo,
+  });
+  // res.render(`testk.ejs`);
 
   // res.render(`${rootDir}/src/views/pages/testk.ejs`);
 
