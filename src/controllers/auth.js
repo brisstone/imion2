@@ -21,15 +21,18 @@ export const login = async (req, res) => {
       return res.redirect("/login");
     }
     const isMatch = await bcrypt.compare(password, user.password);
+    console.log(isMatch, "authencicated")
     if (isMatch) {
       req.session.user = user;
+      console.log('redirecting.......')
       res.redirect("/dashboard");
     } else {
+      console.log('not__matched__redirecting.......')
       res.redirect("/login");
     }
   } catch (err) {
     console.log(err);
-    res.redirect("/login");
+    // res.redirect("/login");
   }
 };
 export const registerView = async (req, res) => {
