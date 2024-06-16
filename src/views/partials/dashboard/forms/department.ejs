@@ -1,0 +1,57 @@
+<div class="col-lg-6">
+  <div class="card">
+    <div class="card-header">About Department</div>
+    <div class="card-body">
+      <h5 class="card-title">Department on the About Us page
+      </h5>
+      <form id="deparment-form" method="post" action="/create-department">
+        <input type="hidden" name="_id" value="<%= departmentContent[0]._id %>">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title </label>
+          <input type="text" name="title" placeholder="Title" class="form-control" required value="<%= departmentContent[0].title %>">
+        </div>
+        <div class="mb-3">
+          <label for="summary" class="form-label">Summary</label>
+          <textarea name="summary" id="summary" rows="5" class="form-control">
+           <%= departmentContent[0].summary %>
+          </textarea>
+        </div>
+        <div class="mb-3">
+          <label for="list" class="form-label">List of departments <span class="text-danger">(NOTE: use commas <strong>,</strong> to separate individual departments)</span></label>
+          <textarea class="form-control" id="lisr" rows="8" name="list">
+            <%= departmentContent[0].listString %>
+          </textarea>
+
+        </div>
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary">
+            UPDATE
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('deparment-form').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    try {
+      const response = await fetch('/create-department', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        location.reload();
+        alert("Successfully submitted")
+
+      } else {
+        console.error('Error submitting the form');
+      }
+    } catch (error) {
+      console.error('Error submitting the form:', error);
+    }
+  });
+</script>
