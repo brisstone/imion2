@@ -3,6 +3,7 @@ import { contactForm, contactInfo } from "../data/contactForm.js";
 
 export const home = async (req, res) => {
   try {
+    console.log('home____', res)
     const data = await getData();
     res.render("../src/views/pages/index.ejs", {
       pageTitle: "Home",
