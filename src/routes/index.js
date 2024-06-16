@@ -35,20 +35,6 @@ import {
   deleteGalleryImage,
   addGalleryImage,
 } from "../controllers/downloadGal.js";
-import path from 'path';
-import { fileURLToPath } from 'url';
-import { contactForm, contactInfo } from "../data/contactForm.js";
-import { getData } from "../services/getData.js";
-// import { contactForm, contactInfo } from "../data/contactForm.js";
-
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const rootDir = process.cwd();
-
-
-console.log(__filename, "jdjd")
 const isAuthenticated = (req, res, next) => {
   if (req.session.user) {
     next();
@@ -57,29 +43,6 @@ const isAuthenticated = (req, res, next) => {
     res.redirect("/login");
   }
 };
-
-router.get('/home-office', async(req, res) => {
-  console.log(rootDir, "pathpath")
-  // res.status(200).json('Welcome, your app is working well');
-  // res.sendFile(path.join(__dirname, 'public', 'index.html'));
-  // res.sendFile(path.join(__dirname, 'src', 'views', 'index.html'));
-  // res.sendFile(path.join(__dirname, 'src', 'views', 'main.ejs'));
-  // res.sendFile(path.join(rootDir, 'src', 'views', 'main.ejs'));
-  // res.render('index');
-  const data = await getData();
-
-  res.render("index.ejs", {
-    pageTitle: "Home",
-    ...data,
-    contactForm,
-    contactInfo,
-  });
-  // res.render(`testk.ejs`);
-
-  // res.render(`${rootDir}/src/views/pages/testk.ejs`);
-
-
-})
 
 router.get("/", home);
 router.get("/about", about);

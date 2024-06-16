@@ -3,22 +3,13 @@ import { contactForm, contactInfo } from "../data/contactForm.js";
 
 export const home = async (req, res) => {
   try {
-    console.log('home____', res)
     const data = await getData();
-    // res.render("../src/views/pages/index.ejs", {
-    //   pageTitle: "Home",
-    //   ...data,
-    //   contactForm,
-    //   contactInfo,
-    // });
-    // res.render("index", {
-    //   pageTitle: "Home",
-    //   ...data,
-    //   contactForm,
-    //   contactInfo,
-    // });
-      res.render(`testk.ejs`);
-
+    res.render("../src/views/pages/index.ejs", {
+      pageTitle: "Home",
+      ...data,
+      contactForm,
+      contactInfo,
+    });
   } catch (error) {
     res.status(500).send({ message: error.message || "Error Occured" });
   }
