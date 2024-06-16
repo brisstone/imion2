@@ -44,7 +44,7 @@ const isAuthenticated = (req, res, next) => {
   }
 };
 
-app.get('/home-office', (req, res) => {
+router.get('/home-office', (req, res) => {
   res.status(200).json('Welcome, your app is working well');
 })
 
