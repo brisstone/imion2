@@ -25,10 +25,10 @@ export const login = async (req, res) => {
     if (isMatch) {
       req.session.user = user;
       console.log('redirecting.......')
-      res.redirect("/dashboard");
+      // res.redirect("/dashboard");
     } else {
       console.log('not__matched__redirecting.......')
-      res.redirect("/login");
+      // res.redirect("/login");
     }
   } catch (err) {
     console.log(err);
