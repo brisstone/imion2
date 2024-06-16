@@ -44,6 +44,10 @@ const isAuthenticated = (req, res, next) => {
   }
 };
 
+app.get('/home-office', (req, res) => {
+  res.status(200).json('Welcome, your app is working well');
+})
+
 router.get("/", home);
 router.get("/about", about);
 router.get("/gallery", gallery);
