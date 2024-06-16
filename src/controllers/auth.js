@@ -23,8 +23,10 @@ export const login = async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     console.log(isMatch, "authencicated")
     if (isMatch) {
+      console.log('b4_redirecting.......')
+
       req.session.user = user;
-      console.log('redirecting.......')
+      console.log('redirecting.......', req.session.user)
       // res.redirect("/dashboard");
     } else {
       console.log('not__matched__redirecting.......')
