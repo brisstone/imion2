@@ -34,7 +34,7 @@ app.use(fileupload());
 app.use(express.static("public"));
 
 app.set("view engine", "ejs");
-app.set('views', path.join(rootDir, 'src', 'views', 'pages'));
+// app.set('views', path.join(rootDir, 'src', 'views', 'pages'));
 
 app.use("/", router);
 
