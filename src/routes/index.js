@@ -60,7 +60,8 @@ router.get('/home-office', (req, res) => {
   // res.sendFile(path.join(__dirname, 'public', 'index.html'));
   // res.sendFile(path.join(__dirname, 'src', 'views', 'index.html'));
   // res.sendFile(path.join(__dirname, 'src', 'views', 'main.ejs'));
-  res.sendFile(path.join(rootDir, 'src', 'views', 'main.ejs'));
+  // res.sendFile(path.join(rootDir, 'src', 'views', 'main.ejs'));
+  res.render('index');
 
 
 })
