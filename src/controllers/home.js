@@ -5,7 +5,13 @@ export const home = async (req, res) => {
   try {
     console.log('home____', res)
     const data = await getData();
-    res.render("../src/views/pages/index.ejs", {
+    // res.render("../src/views/pages/index.ejs", {
+    //   pageTitle: "Home",
+    //   ...data,
+    //   contactForm,
+    //   contactInfo,
+    // });
+    res.render("index", {
       pageTitle: "Home",
       ...data,
       contactForm,
