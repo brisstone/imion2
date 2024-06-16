@@ -37,6 +37,10 @@ import {
 } from "../controllers/downloadGal.js";
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { contactForm, contactInfo } from "../data/contactForm.js";
+import { getData } from "../services/getData.js";
+// import { contactForm, contactInfo } from "../data/contactForm.js";
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -54,14 +58,22 @@ const isAuthenticated = (req, res, next) => {
   }
 };
 
-router.get('/home-office', (req, res) => {
+router.get('/home-office', async(req, res) => {
   console.log(rootDir, "pathpath")
   // res.status(200).json('Welcome, your app is working well');
   // res.sendFile(path.join(__dirname, 'public', 'index.html'));
   // res.sendFile(path.join(__dirname, 'src', 'views', 'index.html'));
   // res.sendFile(path.join(__dirname, 'src', 'views', 'main.ejs'));
   // res.sendFile(path.join(rootDir, 'src', 'views', 'main.ejs'));
-  res.render('index');
+  // res.render('index');
+  const data = await getData();
+
+  res.render("index", {
+    pageTitle: "Home",
+    ...data,
+    contactForm,
+    contactInfo,
+  });
 
 
 })
