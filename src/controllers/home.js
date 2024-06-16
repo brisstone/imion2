@@ -11,12 +11,14 @@ export const home = async (req, res) => {
     //   contactForm,
     //   contactInfo,
     // });
-    res.render("index", {
-      pageTitle: "Home",
-      ...data,
-      contactForm,
-      contactInfo,
-    });
+    // res.render("index", {
+    //   pageTitle: "Home",
+    //   ...data,
+    //   contactForm,
+    //   contactInfo,
+    // });
+      res.render(`testk.ejs`);
+
   } catch (error) {
     res.status(500).send({ message: error.message || "Error Occured" });
   }
